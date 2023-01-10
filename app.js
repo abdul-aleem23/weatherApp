@@ -7,10 +7,12 @@ let getWeather = () => {
   let cityValue = cityRef.value;
   // if statement for when search field is left empty.
   if (cityValue.length == 0){
-    result.innerHTML = `<h3>Please enter a city name</h3>`;
+    result.innerHTML = `<h3 class="msg">Please enter a city name</h3>`;
   }
   else {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=${key}&units=metric`;
+    //Clearing the input field
+    cityRef.value = "";
     fetch(url)
       .then(resp => resp.json())
       //If city name is valid
@@ -29,7 +31,8 @@ let getWeather = () => {
 
         result.innerHTML = `
         <h2>${data.name}</h2>
-        <h4 class="weather">${data.weather[0].description}</h4>
+        <h4 class="weather">${data.weather[0].main}</h4>
+        <h4 class="description">${data.weather[0].description}</h4>
         <img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png">
         <h1>${data.main.temp}</h1>
         <div class="temp-container">
@@ -50,11 +53,12 @@ let getWeather = () => {
       })
       //If city name isn't valid
       .catch(() => {
-        result.innerHTML = `<h3>City not found</h3>`;
+        result.innerHTML = `<h3 class="msg">City not found</h3>`;
       })
   }
 };
 
+//The getWeather function is run when the search button is clicked.
 searchButton.addEventListener("click", getWeather);
 
 //two arguments: the name of the event to listen for (in this case, "load"), and the function that should be called when the event occurs.

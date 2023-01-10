@@ -68,3 +68,73 @@ body {
   color: var(--beige-1);
   background-color: var(--white);
 }
+
+#result h2 {
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 400;
+
+  margin: 1.25em;
+}
+
+.weather,
+.description {
+  color: var(--off-white);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.9em;
+  font-weight: 300;
+  line-height: 2em;
+}
+weather {
+  margin-top: -0.7em;
+}
+
+#result img {
+  margin: 0.6em 0 0 0;
+  width: 6.2em;
+  filter: drop-shadow(0 1.8em 3.7em var(--shadow));
+}
+#result h1 {
+  font-size: 4em;
+  margin: 0,3em 0.7em 0;
+  font-weight: 400;
+  color: var(--white);
+}
+
+.temp-container {
+  display: flex;
+  justify-content: center;
+}
+.temp-container div {
+  padding: 0.3em 1em;
+}
+.temp-container div:first-child {
+  border-right: 1px solid var(--transp-white-1);
+}
+.temp-container div:nth-child(2) { /* Targets the specified child of the parent element */
+  border-right: 1px solid var(--transp-white-1);
+}
+.temp-container .title {
+  font-weight: 300;
+  color: var(--white);
+  text-transform: uppercase;
+}
+.temp-container .temp {
+  font-weight: 300;
+  color: var(--white);
+}
+.msg {
+  margin-top: 1.8em;
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+@media screen and (max-width:450px){
+  .wrapper{
+    font-size: 14px;
+  }
+}
